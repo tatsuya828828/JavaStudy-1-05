@@ -1,45 +1,41 @@
 
 public class Main {
-	public static void incArray(int[] array) {
-		for(int value: array) {
-			value++;
-			System.out.println(value);
-		}
+	public static void introduceOneself() {
+		String name = "たかし";
+		int age = 12;
+		double height = 190.8;
+		char zodiac = '子';
+		System.out.println("プロフィール: "+ name +","+ age +"歳,"+ zodiac +"年,"+ height +"cm");
 	}
 
-	public static void inc(int[] array) {
-		for(int i=0; i<array.length; i++) {
-			array[i]++;
-			System.out.println(array[i]);
-		}
+	public static void email(String title, String address, String text) {
+		System.out.println(address +"に、以下のメールを送信しました");
+		System.out.println("件名:"+ title);
+		System.out.println("本文:"+ text);
 	}
 
-	public static int[] makeArray(int size) {
-		int[] newArray = new int[size];
-		for(int i=0; i<newArray.length; i++) {
-			newArray[i] = i;
-		}
-		return  newArray;
+	public static void email(String address, String text) {
+		System.out.println(address+ "に、以下のメールを送信しました");
+		System.out.println("件名:無題");
+		System.out.println("本文:"+ text);
 	}
 
+	public static double calcTriangleArea(double bottom, double height) {
+		double ans = bottom*height/2;
+		return ans;
+	}
+
+	public static double calcCircleArea(double radius) {
+		double ans = radius*radius*3.14;
+		return ans;
+	}
 	public static void main(String[] args) {
-		int[] array = {1, 2, 3};
-		// 拡張for分の場合
-		incArray(array);
-		for(int value: array) {
-			System.out.println(value);
-		}
-		// for文の場合
-		// 引数にアドレスを渡すことによって呼び出し先で加えた変更が呼び出し元でも反映される
-		inc(array);
-		for(int value: array) {
-			System.out.println(value);
-		}
-
-		// 戻り値に配列を用いた場合
-		int[] array2 = makeArray(5);
-		for(int value: array2) {
-			System.out.println(value);
-		}
+		introduceOneself();
+		email("こんにちは", "aiueo123@gmail.com", "テスト送信");
+		email("overload@gmail.com", "引数を減らしました");
+		double triangleAnswer = calcTriangleArea(3, 5);
+		double circleAnswer = calcCircleArea(5);
+		System.out.println("三角形の面積:"+ triangleAnswer);
+		System.out.println("円の面積:"+ circleAnswer);
 	}
 }
